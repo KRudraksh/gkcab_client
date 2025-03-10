@@ -52,11 +52,16 @@ jobs:
       - name: Unzip artifact for deployment
         run: unzip release.zip
 
+      - name: Clean and reinstall node_modules
+        run: |
+          rm -rf node_modules
+          npm ci --production
+
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'gkcab'
-          slot-name: 'Production'
+          slot-name: 'production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0606DFF2850E4AC8ACEDE93E133F0971 }}
           package: .
