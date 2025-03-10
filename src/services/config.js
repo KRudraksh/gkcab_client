@@ -5,7 +5,7 @@ const dev = {
 
 const prod = {
   // For Azure deployment at gkcab.azurewebsites.net
-  apiUrl: process.env.REACT_APP_API_URL || 'https://gkcab.azurewebsites.net/api'
+  apiUrl: process.env.REACT_APP_API_URL || 'https://gkcab-backend.azurewebsites.net/api'
 };
 
 // Determine which environment we're in
