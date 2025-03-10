@@ -55,7 +55,7 @@ jobs:
       - name: Clean and reinstall node_modules
         run: |
           rm -rf node_modules
-          npm ci --production
+          npm install --production --no-package-lock
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
